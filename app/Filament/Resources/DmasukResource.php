@@ -28,9 +28,9 @@ class DmasukResource extends Resource
                 ->label('ID Masuk')
                 ->required()
                 ->maxLength(5),
-                Forms\Components\Select::all()->pluck('kode_masuk')
+                Forms\Components\Select::make('kode_masuk')
                 ->label('Kode Masuk')
-                ->required()
+                ->options(Masuk::all()->pluck('kode_masuk','id'))
                 ->searchable(),
                 Forms\Components\TextInput::make('kode_barang_beli')
                 ->label('Kode Barang Beli')
