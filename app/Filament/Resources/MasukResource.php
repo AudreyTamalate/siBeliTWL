@@ -35,9 +35,9 @@ class MasukResource extends Resource
                 ->label('Kode Admin')
                 ->required()
                 ->maxLength(5),
-                Forms\Components\Select::all()->pluck('kode_supplier')
+                Forms\Components\Select::make('kode_supplier')
                 ->label('Kode Supplier')
-                ->required()
+                ->options(Supplier::all()->pluck('kode_supplier','id'))
                 ->searchable(),
                 Forms\Components\TextInput::make('total_masuk')
                 ->label('Total Masuk')
